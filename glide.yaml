@@ -1,0 +1,4 @@
+package: gogs.in.dataengine.com/baa-cicd
+import:
+- package: gopkg.in/baa.v1
+  version: v1.2.29
