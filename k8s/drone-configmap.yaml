@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: drone-config
+  namespace: devops
+data:
+
+  #######################
+  # Drone Server Config #
+  #######################
+
+  # server host name
+  server.host: drone.xxx.com
+  # open user registration
+  server.open: "true"
+  # database driver, defaul as sqlite3
+  server.database.driver: sqlite3
+  # database driver configuration string
+  server.database.datasource: drone.sqlite
+
+  # remote parameters (Gogs)
+  server.remote.gogs: "true"
+  server.remote.gogs.url: "http://gogs.xxx.com"
+  server.remote.gogs.private.mode: "true"
+
+  ######################
+  # Drone Agent Config #
+  ######################
+
+  agent.max.procs: "1"
+  agent.healthcheck: "true"
