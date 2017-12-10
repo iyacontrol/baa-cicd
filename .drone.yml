@@ -6,13 +6,23 @@ pipeline:
     image: golang:latest
     commands:
       - go build -o baa-cicd
-  publish:
-    image: plugins/docker
-    registry: registry.xxx.com
-    repo: registry.xxx.com/test/baa-cicd
-    tags: latest
-    secrets: [ docker_username, docker_password ]
-    insecure: true
+  # publish:
+  #   image: plugins/docker
+  #   registry: registry.xxx.com
+  #   repo: registry.xxx.com/test/baa-cicd
+  #   tags: latest
+  #   secrets: [ docker_username, docker_password ]
+  #   insecure: true
+  scp:
+    image: appleboy/drone-scp
+    host: 10.205.16.170
+    username: root
+    key_path: deploy_rsa
+    rm: true
+    target:
+     - /rc/local
+    source:
+     - baa-cicd 
   notify:
     image: plugins/slack
     webhook: https://hooks.slack.com/services/xxx/xxx/xxx
