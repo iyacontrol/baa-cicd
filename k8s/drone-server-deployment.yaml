@@ -55,21 +55,36 @@ spec:
             secretKeyRef:
               name: drone-secrets
               key: server.secret
-        - name: DRONE_GOGS
+        # - name: DRONE_GOGS
+        #   valueFrom:
+        #     configMapKeyRef:
+        #       name: drone-config
+        #       key: server.remote.gogs
+        # - name: DRONE_GOGS_URL
+        #   valueFrom:
+        #     configMapKeyRef:
+        #       name: drone-config
+        #       key: server.remote.gogs.url
+        # - name: DRONE_GOGS_PRIVATE_MODE
+        #   valueFrom:
+        #     configMapKeyRef:
+        #       name: drone-config
+        #       key: server.remote.gogs.private.mode
+        - name: DRONE_GITHUB
           valueFrom:
             configMapKeyRef:
               name: drone-config
-              key: server.remote.gogs
-        - name: DRONE_GOGS_URL
+              key: server.remote.github
+        - name: DRONE_GITHUB_CLIENT
           valueFrom:
             configMapKeyRef:
               name: drone-config
-              key: server.remote.gogs.url
-        - name: DRONE_GOGS_PRIVATE_MODE
+              key: server.remote.github.client
+        - name: DRONE_GITHUB_SECRET
           valueFrom:
             configMapKeyRef:
               name: drone-config
-              key: server.remote.gogs.private.mode
+              key: server.remote.github.secret
         - name: DRONE_DEBUG
           valueFrom:
             configMapKeyRef:

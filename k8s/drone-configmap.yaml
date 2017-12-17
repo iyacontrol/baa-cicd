@@ -20,10 +20,15 @@ data:
   # database driver configuration string
   server.database.datasource: drone.sqlite
 
+  # remote parameters (GitHub)
+  server.remote.github: "true"
+  server.remote.github.client: 652d31b6d90d3639a235
+  server.remote.github.secret: bc24e1d6e2bb0e2c4759352f48e218c67c01fc5a
+
   # remote parameters (Gogs)
-  server.remote.gogs: "true"
-  server.remote.gogs.url: "http://gogs.xxx.com"
-  server.remote.gogs.private.mode: "true"
+  # server.remote.gogs: "true"
+  # server.remote.gogs.url: "http://gogs.xxx.com"
+  # server.remote.gogs.private.mode: "true"
 
   ######################
   # Drone Agent Config #
