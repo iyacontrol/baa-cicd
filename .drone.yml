@@ -8,8 +8,8 @@ pipeline:
       - go build -o baa-cicd
   publish:
     image: plugins/docker
-    registry: registry.in.dataengine.com
-    repo: registry.in.dataengine.com/test/baa-cicd
+    registry: registry.xxx.com
+    repo: registry.xxx.com/test/baa-cicd
     tags: latest
     secrets: [ docker_username, docker_password ]
     insecure: true

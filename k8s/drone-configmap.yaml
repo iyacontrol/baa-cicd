@@ -22,8 +22,8 @@ data:
 
   # remote parameters (GitHub)
   server.remote.github: "true"
-  server.remote.github.client: 652d31b6d90d3639a235
-  server.remote.github.secret: bc24e1d6e2bb0e2c4759352f48e218c67c01fc5a
+  server.remote.github.client: 652d31b6d90d3639axxx
+  server.remote.github.secret: bc24e1d6e2bb0e2c47593xxxxc01fc5a
 
   # remote parameters (Gogs)
   # server.remote.gogs: "true"
