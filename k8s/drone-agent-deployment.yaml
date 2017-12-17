@@ -13,7 +13,7 @@ spec:
       nodeSelector:
         net-type: external
       containers:
-      - image: drone/agent:0.8
+      - image: drone/agent:latest
         imagePullPolicy: Always
         name: drone-agent
         volumeMounts:
@@ -41,16 +41,6 @@ spec:
             secretKeyRef:
               name: drone-secrets
               key: server.secret
-        - name: DRONE_MAX_PROCS
-          valueFrom:
-            configMapKeyRef:
-              name: drone-config
-              key: agent.max.procs
-        - name: DRONE_HEALTHCHECK
-          valueFrom:
-            configMapKeyRef:
-              name: drone-config
-              key: agent.healthcheck
       volumes:
         - name: docker-socket
           hostPath:

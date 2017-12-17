@@ -13,7 +13,7 @@ spec:
       nodeSelector:
         net-type: external
       containers:
-      - image: drone/drone:0.8
+      - image: drone/drone:latest
         imagePullPolicy: Always
         name: drone-server
         ports:
@@ -25,9 +25,6 @@ spec:
           # Persist our configs in an SQLite DB in here
           - name: drone-server-sqlite-db
             mountPath: /var/lib/drone
-          # Enables Docker in Docker
-          - name: docker-socket
-            mountPath: /var/run/docker.sock
         resources:
           requests:
             cpu: 40m
@@ -73,10 +70,12 @@ spec:
             configMapKeyRef:
               name: drone-config
               key: server.remote.gogs.private.mode
+        - name: DRONE_DEBUG
+          valueFrom:
+            configMapKeyRef:
+              name: drone-config
+              key: server.debug
       volumes:
         - name: drone-server-sqlite-db
           hostPath:
-            path: /var/lib/drone
-        - name: docker-socket
-          hostPath:
-            path: /var/run/docker.sock
+            path: /rc/data/drone

@@ -1,0 +1,14 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: drone-ingress
+  namespace: devops
+spec:
+  rules:
+  - host: drone.in.dataengine.com
+    http:
+      paths:
+      - backend:
+          serviceName: drone-service
+          servicePort: 80
+        path: /

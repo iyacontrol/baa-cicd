@@ -11,6 +11,8 @@ data:
 
   # server host name
   server.host: drone.xxx.com
+  # start the server in debug mode
+  server.debug: "false"
   # open user registration
   server.open: "true"
   # database driver, defaul as sqlite3
@@ -26,6 +28,7 @@ data:
   ######################
   # Drone Agent Config #
   ######################
-
+  agent.debug: "false"
+  agent.debug.pretty: "false"
   agent.max.procs: "1"
   agent.healthcheck: "true"
