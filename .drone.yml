@@ -15,7 +15,7 @@ pipeline:
   #   insecure: true
   scp:
     image: appleboy/drone-scp
-    host: 10.205.16.170
+    host: 10.xx.xx.170
     username: root
     key_path: deploy_rsa
     rm: true
@@ -23,6 +23,13 @@ pipeline:
      - /rc/local
     source:
      - baa-cicd 
+  ssh:
+    image: appleboy/drone-ssh
+    host:10.xx.xx.170
+    username: root
+    key_path: deploy_rsa
+    script:
+      - supervisorctl -c /rc/conf/supervisord.conf reload
   notify:
     image: plugins/slack
     webhook: https://hooks.slack.com/services/xxx/xxx/xxx
