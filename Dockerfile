@@ -5,4 +5,4 @@ COPY baa-cicd  /usr/local/bin/baa-cicd
 
 EXPOSE 13123
 
-ENTRYPOINT  ["baa-cicd","--port=13123"]
+ENTRYPOINT  ["/usr/local/bin/baa-cicd"]
